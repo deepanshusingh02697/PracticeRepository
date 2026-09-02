@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Registration Form</h1>
+      <br/>
+      <form action="" id="form">
+        <label for="name">Enter Name</label>
+        <input type="text" id="name" placeholder="Enter Name" />
+        <br />
+        <label for="adhaar">Enter Adhaar</label>
+        <input
+          type="text"
+          id="adhaar"
+          placeholder="Enter 12-digit Adhaar Number"
+        />
+        <br />
+        <label for="phone">Phone No.</label>
+        <input
+          type="tel"
+          placeholder="Enter 10-digit phone number"
+          id="phone"
+        />
+        <br />
+        <div class="agedob">
+          <div>
+            <label for="age">Are you 18-year old ? : </label>
+            <input type="checkbox" id="age" />
+          </div>
+          <div class="dob">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" />
+          </div>
+        </div>
+        <br />
+        <fieldset>
+          <legend>Select Gender:</legend>
+
+          <input type="radio" name="gender" id="male" value="male" />
+          <label for="male">Male</label>
+
+          <input type="radio" name="gender" id="female" value="female" />
+          <label for="female">Female</label>
+
+          <input type="radio" name="gender" id="others" value="other" />
+          <label for="others">Others</label>
+        </fieldset>
+        <br />
+
+        <label for="country">Select country</label>
+        <select name="country" id="country">
+          <option value="">Country</option>
+          <option value="IN">INDIA</option>
+        </select>
+
+        <select name="state" id="state">
+          <option value="">Select State</option>
+          <option value="UP">Uttar Pradesh</option>
+          <option value="MH">Maharashtra</option>
+          <option value="RJ">Rajasthan</option>
+          <option value="GJ">Gujarat</option>
+          <option value="WB">West Bengal</option>
+          <option value="KA">Karnataka</option>
+          <option value="TN">Tamil Nadu</option>
+          <option value="KL">Kerala</option>
+          <option value="MP">Madhya Pradesh</option>
+          <option value="BR">Bihar</option>
+        </select>
+
+        <select name="city" id="city">
+          <option value="">Select City</option>
+        </select>
+        <br />
+
+        <label for="address">Enter Address: </label>
+        <textarea name="address" id="address" rows="2"></textarea>
+        <br />
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </form>
+
+      <br />
+      <h3>Data Table</h3>
+      <br/>
+      <table id="userTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Aadhaar</th>
+            <th>Phone</th>
+            <th>Age</th>
+            <th>DOB</th>
+            <th>Gender</th>
+            <th>Country</th>
+            <th>State</th>
+            <th>City</th>
+            <th>Addresses</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>

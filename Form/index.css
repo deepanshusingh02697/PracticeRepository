@@ -1,0 +1,166 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 30px;
+}
+.container {
+  max-width: 1500px;
+  margin: auto;
+}
+h1 {
+  text-align: center;
+  color: #333;
+}
+h3 {
+  color: #333;
+  margin-top: 30px;
+}
+form {
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+label {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+}
+input[type="text"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+textarea {
+  resize: vertical;
+}
+.agedob {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  align-items: center;
+  border: 1px solid #ccc;
+}
+.agedob div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.agedob .dob label{
+    margin-bottom: 0;
+    display:flex;
+    align-items:center;
+}
+.agedob input[type="date"] {
+  margin-bottom: 0;
+}
+
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+legend {
+  font-weight: bold;
+  color: #333;
+}
+fieldset input {
+  margin-left: 10px;
+}
+fieldset label {
+  margin-right: 10px;
+}
+button {
+  padding: 9px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+}
+button[type="reset"] {
+  background-color: #777;
+  color: white;
+  margin-left: 5px;
+}
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+button[type="reset"]:hover {
+  background-color: #555;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+th {
+  background-color: #333;
+  color: white;
+}
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+td button {
+  margin: 2px;
+}
+td button[data-action="edit"] {
+  background-color: #2196f3;
+  color: white;
+}
+td button[data-action="delete"] {
+  background-color: #f44336;
+  color: white;
+}
+td button[data-action="edit"]:hover {
+  background-color: #1976d2;
+}
+td button[data-action="delete"]:hover {
+  background-color: #d32f2f;
+}
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+  form {
+    padding: 15px;
+  }
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
