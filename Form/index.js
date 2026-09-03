@@ -33,8 +33,39 @@ document.getElementById("state").addEventListener("change", function () {
   }
 });
 
+function showError(fieldId, message) {
+  const field = document.getElementById(fieldId);
+  let errorElement = document.getElementById(`${fieldId}-error`);
+  if (!errorElement) {
+    errorElement = document.createElement("small");
+    errorElement.id = `${fieldId}-error`;
+    errorElement.className = "error-message";
+    field.parentElement.appendChild(errorElement);
+  }
+  errorElement.textContent = message;
+  field.classList.add("input-error");
+}
+function clearErrors() {
+  document.querySelectorAll(".error-message").forEach((error) => {
+    error.textContent = "";
+  });
+
+  document.querySelectorAll(".input-error").forEach((field) => {
+    field.classList.remove("input-error");
+  });
+}
+function validateField(fieldId, validationFunction, value) {
+  const error = validationFunction(value);
+  if (error) {
+    showError(fieldId, error);
+    return true;
+  }
+  return false;
+}
+
 const handleFormSubmit = (e) => {
   e.preventDefault();
+  clearErrors();
   const name = document.getElementById("name").value;
   const adhaar = document.getElementById("adhaar").value;
   const phone = document.getElementById("phone").value;
@@ -46,57 +77,26 @@ const handleFormSubmit = (e) => {
   const address = document.getElementById("address").value;
   const genderCheck = document.querySelector('input[name="gender"]:checked');
   const gender = genderCheck ? genderCheck.value : "";
-  let error;
-  error = validateName(name);
+
+
+  if (validateField("name", validateName, name)) return;
+  if (validateField("adhaar", validateAadhaar, adhaar)) return;
+  if (validateField("phone", validatePhone, phone)) return;
+  if (validateField("dob", validateDob, dob)) return;
+  let error = validateAge(dob, age);
   if (error) {
-    alert(error);
-    return;
-  }
-  error = validateAadhaar(adhaar);
-  if (error) {
-    alert(error);
-    return;
-  }
-  error = validatePhone(phone);
-  if (error) {
-    alert(error);
-    return;
-  }
-  error = validateDob(dob);
-  if (error) {
-    alert(error);
-    return;
-  }
-  error = validateAge(dob, age);
-  if (error) {
-    alert(error);
+    showError("age", error);
     return;
   }
   error = validateGender(gender);
   if (error) {
-    alert(error);
+    showError("gender", error);
     return;
   }
-  error = validateCountry(country);
-  if (error) {
-    alert(error);
-    return;
-  }
-  error = validateState(state);
-  if (error) {
-    alert(error);
-    return;
-  }
-  error = validateCity(city);
-  if (error) {
-    alert(error);
-    return;
-  }
-  error = validateAddress(address);
-  if (error) {
-    alert(error);
-    return;
-  }
+  if (validateField("country", validateCountry, country)) return;
+  if (validateField("state", validateState, state)) return;
+  if (validateField("city", validateCity, city)) return;
+  if (validateField("address", validateAddress, address)) return;
 
   const getData = {
     name,

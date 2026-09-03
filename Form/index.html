@@ -9,33 +9,48 @@
   <body>
     <div class="container">
       <h1>Registration Form</h1>
-      <br/>
+      <br />
       <form action="" id="form">
         <label for="name">Enter Name</label>
         <input type="text" id="name" placeholder="Enter Name" />
+        <small id="name-error" class="error-message"></small>
         <br />
         <label for="adhaar">Enter Adhaar</label>
         <input
-          type="text"
+          type="tel"
           id="adhaar"
           placeholder="Enter 12-digit Adhaar Number"
+          maxlength="12"
+          inputmode="numeric"
         />
+        <small id="adhaar-error" class="error-message"></small>
         <br />
         <label for="phone">Phone No.</label>
         <input
           type="tel"
           placeholder="Enter 10-digit phone number"
           id="phone"
+          maxlength="10"
+          inputmode="numeric"
         />
+        <small id="phone-error" class="error-message"></small>
         <br />
         <div class="agedob">
           <div>
-            <label for="age">Are you 18-year old ? : </label>
-            <input type="checkbox" id="age" />
+            <div class="age-section">
+              <label for="age">Are you 18-year old ? : </label>
+              <input type="checkbox" id="age" />
+            </div>
+            <br/>
+            <small id="age-error" class="error-message"></small>
           </div>
-          <div class="dob">
-            <label for="dob">Date of Birth</label>
-            <input type="date" id="dob" />
+          <div>
+            <div class="dob-section">
+              <label for="dob">Date of Birth : </label>
+              <input type="date" id="dob" />
+            </div>
+            <br/>
+            <small id="dob-error" class="error-message"></small>
           </div>
         </div>
         <br />
@@ -50,6 +65,8 @@
 
           <input type="radio" name="gender" id="others" value="other" />
           <label for="others">Others</label>
+
+          <small id="gender-error" class="error-message"></small>
         </fieldset>
         <br />
 
@@ -58,6 +75,7 @@
           <option value="">Country</option>
           <option value="IN">INDIA</option>
         </select>
+        <small id="country-error" class="error-message"></small>
 
         <select name="state" id="state">
           <option value="">Select State</option>
@@ -72,22 +90,26 @@
           <option value="MP">Madhya Pradesh</option>
           <option value="BR">Bihar</option>
         </select>
+        <small id="state-error" class="error-message"></small>
 
         <select name="city" id="city">
           <option value="">Select City</option>
         </select>
+        <small id="city-error" class="error-message"></small>
+
         <br />
 
         <label for="address">Enter Address: </label>
         <textarea name="address" id="address" rows="2"></textarea>
+        <small id="address-error" class="error-message"></small>
         <br />
         <button type="submit">Submit</button>
         <button type="reset">Reset</button>
       </form>
 
       <br />
-      <h3>Data Table</h3>
-      <br/>
+      <h3>Users List</h3>
+      <br />
       <table id="userTable">
         <thead>
           <tr>

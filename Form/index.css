@@ -64,17 +64,27 @@ textarea {
   align-items: center;
   border: 1px solid #ccc;
 }
-.agedob div {
+.age-section {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.agedob .dob label{
-    margin-bottom: 0;
-    display:flex;
-    align-items:center;
+.age-section label {
+  margin: 0;
 }
-.agedob input[type="date"] {
+.age-section input[type="checkbox"] {
+  margin: 0;
+  width: auto;
+}
+.dob-section {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  justify-content: center;
+  text-align: left;
+  align-items: center;
+}
+.dob-section input {
+  width: 100%;
   margin-bottom: 0;
 }
 
@@ -150,6 +160,16 @@ td button[data-action="edit"]:hover {
 }
 td button[data-action="delete"]:hover {
   background-color: #d32f2f;
+}
+.error-message {
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  color: #d32f2f;
+  font-size: 13px;
+}
+.input-error {
+  border-color: #d32f2f;
 }
 @media (max-width: 768px) {
   body {
