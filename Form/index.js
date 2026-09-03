@@ -19,10 +19,19 @@ const form = document.getElementById("form");
 const tbody = document.querySelector("#userTable tbody");
 let editId = null;
 
+//disabled future dates
+const dob = document.getElementById("dob");
+const today = new Date();
+const year = today.getFullYear();
+const month = String(today.getMonth() + 1).padStart(2, "0");
+const day = String(today.getDate()).padStart(2, "0");
+const todayDate = `${year}-${month}-${day}`;
+dob.max = todayDate;
+
 document.getElementById("state").addEventListener("change", function () {
   const state = this.value;
   const city = document.getElementById("city");
-  city.innerHTML = '<option value="">Select city</option>';
+  city.innerHTML = '<option value="">City</option>';
   if (cities[state]) {
     cities[state].forEach((curcity) => {
       const option = document.createElement("option");
@@ -49,10 +58,17 @@ function clearErrors() {
   document.querySelectorAll(".error-message").forEach((error) => {
     error.textContent = "";
   });
-
   document.querySelectorAll(".input-error").forEach((field) => {
     field.classList.remove("input-error");
   });
+}
+function clearFieldError(fieldId) {
+  const field = document.getElementById(fieldId);
+  const errorElement = document.getElementById(`${fieldId}-error`);
+  if (errorElement) {
+    errorElement.textContent = "";
+  }
+  field.classList.remove("input-error");
 }
 function validateField(fieldId, validationFunction, value) {
   const error = validationFunction(value);
@@ -60,8 +76,32 @@ function validateField(fieldId, validationFunction, value) {
     showError(fieldId, error);
     return true;
   }
+  clearFieldError(fieldId);
   return false;
 }
+function setupValidation(fieldId, validationFunction) {
+  const field = document.getElementById(fieldId);
+  field.addEventListener("blur", () => {
+    validateField(fieldId, validationFunction, field.value);
+  });
+  field.addEventListener("input", () => {
+    if (field.classList.contains("input-error")) {
+      validateField(fieldId, validationFunction, field.value);
+    }
+  });
+  field.addEventListener("change", () => {
+    validateField(fieldId, validationFunction, field.value);
+  });
+}
+setupValidation("name", validateName);
+setupValidation("adhaar", validateAadhaar);
+setupValidation("phone", validatePhone);
+setupValidation("dob", validateDob);
+setupValidation("country", validateCountry);
+setupValidation("state", validateState);
+setupValidation("city", validateCity);
+setupValidation("address", validateAddress);
+
 
 const handleFormSubmit = (e) => {
   e.preventDefault();
@@ -70,7 +110,7 @@ const handleFormSubmit = (e) => {
   const adhaar = document.getElementById("adhaar").value;
   const phone = document.getElementById("phone").value;
   const age = document.getElementById("age").checked;
-  const dob = document.getElementById("dob").value;
+  const dobValue = document.getElementById("dob").value;
   const country = document.getElementById("country").value;
   const state = document.getElementById("state").value;
   const city = document.getElementById("city").value;
@@ -82,8 +122,8 @@ const handleFormSubmit = (e) => {
   if (validateField("name", validateName, name)) return;
   if (validateField("adhaar", validateAadhaar, adhaar)) return;
   if (validateField("phone", validatePhone, phone)) return;
-  if (validateField("dob", validateDob, dob)) return;
-  let error = validateAge(dob, age);
+  if (validateField("dob", validateDob, dobValue)) return;
+  let error = validateAge(dobValue, age);
   if (error) {
     showError("age", error);
     return;

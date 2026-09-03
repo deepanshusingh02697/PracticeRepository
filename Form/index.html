@@ -11,11 +11,10 @@
       <h1>Registration Form</h1>
       <br />
       <form action="" id="form">
-        <label for="name">Enter Name</label>
+        <label for="name">Enter Name *</label>
         <input type="text" id="name" placeholder="Enter Name" />
         <small id="name-error" class="error-message"></small>
-        <br />
-        <label for="adhaar">Enter Adhaar</label>
+        <label for="adhaar">Enter Adhaar Number *</label>
         <input
           type="tel"
           id="adhaar"
@@ -24,8 +23,7 @@
           inputmode="numeric"
         />
         <small id="adhaar-error" class="error-message"></small>
-        <br />
-        <label for="phone">Phone No.</label>
+        <label for="phone">Phone No. *</label>
         <input
           type="tel"
           placeholder="Enter 10-digit phone number"
@@ -34,75 +32,94 @@
           inputmode="numeric"
         />
         <small id="phone-error" class="error-message"></small>
-        <br />
-        <div class="agedob">
-          <div>
-            <div class="age-section">
-              <label for="age">Are you 18-year old ? : </label>
-              <input type="checkbox" id="age" />
-            </div>
-            <br/>
-            <small id="age-error" class="error-message"></small>
+        <div>
+          <label class="section-label">Confirm Age</label>
+          <div class="age-input form-section">
+            <label for="age">Are you 18 years old ? </label>
+            <input type="checkbox" id="age" />
           </div>
-          <div>
-            <div class="dob-section">
-              <label for="dob">Date of Birth : </label>
-              <input type="date" id="dob" />
-            </div>
-            <br/>
-            <small id="dob-error" class="error-message"></small>
-          </div>
+          <small id="age-error" class="error-message"></small>
         </div>
         <br />
-        <fieldset>
-          <legend>Select Gender:</legend>
-
-          <input type="radio" name="gender" id="male" value="male" />
-          <label for="male">Male</label>
-
-          <input type="radio" name="gender" id="female" value="female" />
-          <label for="female">Female</label>
-
-          <input type="radio" name="gender" id="others" value="other" />
-          <label for="others">Others</label>
+        <div>
+          <label for="dob">Date of Birth *</label>
+          <input type="date" id="dob" />
+          <small id="dob-error" class="error-message"></small>
+        </div>
+        <div>
+          <label class="section-label">Select Gender *</label>
+          <div class="gender-options form-section">
+            <label>
+              <input type="radio" name="gender" id="male" value="male" />
+              Male
+            </label>
+            <label>
+              <input type="radio" name="gender" id="female" value="female" />
+              Female
+            </label>
+            <label>
+              <input type="radio" name="gender" id="others" value="other" />
+              Others
+            </label>
+          </div>
 
           <small id="gender-error" class="error-message"></small>
-        </fieldset>
+        </div>
         <br />
 
-        <label for="country">Select country</label>
-        <select name="country" id="country">
-          <option value="">Country</option>
-          <option value="IN">INDIA</option>
-        </select>
-        <small id="country-error" class="error-message"></small>
+        <div class="formflex">
+          <div>
+            <label for="country">Select country *</label>
+            <div class="select-wrap">
+              <select name="country" id="country">
+                <option value="">Country</option>
+                <option value="IN">INDIA</option>
+              </select>
+            </div>
+            <small id="country-error" class="error-message"></small>
+          </div>
 
-        <select name="state" id="state">
-          <option value="">Select State</option>
-          <option value="UP">Uttar Pradesh</option>
-          <option value="MH">Maharashtra</option>
-          <option value="RJ">Rajasthan</option>
-          <option value="GJ">Gujarat</option>
-          <option value="WB">West Bengal</option>
-          <option value="KA">Karnataka</option>
-          <option value="TN">Tamil Nadu</option>
-          <option value="KL">Kerala</option>
-          <option value="MP">Madhya Pradesh</option>
-          <option value="BR">Bihar</option>
-        </select>
-        <small id="state-error" class="error-message"></small>
+          <div>
+            <label for="state">Select State *</label>
+            <div class="select-wrap">
+              <select name="state" id="state">
+                <option value="">State</option>
+                <option value="UP">Uttar Pradesh</option>
+                <option value="MH">Maharashtra</option>
+                <option value="RJ">Rajasthan</option>
+                <option value="GJ">Gujarat</option>
+                <option value="WB">West Bengal</option>
+                <option value="KA">Karnataka</option>
+                <option value="TN">Tamil Nadu</option>
+                <option value="KL">Kerala</option>
+                <option value="MP">Madhya Pradesh</option>
+                <option value="BR">Bihar</option>
+              </select>
+            </div>
+            <small id="state-error" class="error-message"></small>
+          </div>
 
-        <select name="city" id="city">
-          <option value="">Select City</option>
-        </select>
-        <small id="city-error" class="error-message"></small>
+          <div>
+            <label for="city">Select City *</label>
+            <div class="select-wrap">
+              <select name="city" id="city">
+                <option value="">City</option>
+              </select>
+            </div>
+            <small id="city-error" class="error-message"></small>
+          </div>
 
-        <br />
-
-        <label for="address">Enter Address: </label>
-        <textarea name="address" id="address" rows="2"></textarea>
-        <small id="address-error" class="error-message"></small>
-        <br />
+          <div>
+            <label for="address">Enter Address: *</label>
+            <textarea
+              name="address"
+              id="address"
+              rows="2"
+              placeholder="Enter Address"
+            ></textarea>
+            <small id="address-error" class="error-message"></small>
+          </div>
+        </div>
         <button type="submit">Submit</button>
         <button type="reset">Reset</button>
       </form>
