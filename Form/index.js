@@ -1,4 +1,4 @@
-import {cities} from "./cities.js";
+import { cities } from "./cities.js";
 import {
   validateAadhaar,
   validateAddress,
@@ -83,9 +83,7 @@ function setupValidation(fieldId, validationFunction) {
     validateField(fieldId, validationFunction, field.value);
   });
   field.addEventListener("input", () => {
-    if (field.classList.contains("input-error")) {
-      validateField(fieldId, validationFunction, field.value);
-    }
+    validateField(fieldId, validationFunction, field.value);
   });
   field.addEventListener("change", () => {
     validateField(fieldId, validationFunction, field.value);
@@ -103,6 +101,10 @@ const ageField = document.getElementById("age");
 ageField.addEventListener("change", () => {
   const dobValue = document.getElementById("dob").value;
   const age = ageField.checked;
+  if (!dobValue) {
+    clearFieldError("age");
+    return;
+  }
   const error = validateAge(dobValue, age);
   if (error) {
     showError("age", error);
@@ -112,9 +114,7 @@ ageField.addEventListener("change", () => {
 });
 document.querySelectorAll('input[name="gender"]').forEach((radio) => {
   radio.addEventListener("change", () => {
-    const genderCheck = document.querySelector(
-      'input[name="gender"]:checked'
-    );
+    const genderCheck = document.querySelector('input[name="gender"]:checked');
     const gender = genderCheck ? genderCheck.value : "";
     const error = validateGender(gender);
     if (error) {
@@ -124,9 +124,6 @@ document.querySelectorAll('input[name="gender"]').forEach((radio) => {
     }
   });
 });
-
-
-
 
 const handleFormSubmit = (e) => {
   e.preventDefault();
@@ -142,7 +139,6 @@ const handleFormSubmit = (e) => {
   const address = document.getElementById("address").value;
   const genderCheck = document.querySelector('input[name="gender"]:checked');
   const gender = genderCheck ? genderCheck.value : "";
-
 
   if (validateField("name", validateName, name)) return;
   if (validateField("adhaar", validateAadhaar, adhaar)) return;
@@ -168,7 +164,7 @@ const handleFormSubmit = (e) => {
     adhaar,
     phone: "+91 " + phone,
     age,
-    dob:dobValue,
+    dob: dobValue,
     gender,
     country,
     state,
