@@ -19,7 +19,6 @@ const form = document.getElementById("form");
 const tbody = document.querySelector("#userTable tbody");
 let editId = null;
 
-//disabled future dates
 const dob = document.getElementById("dob");
 const today = new Date();
 const year = today.getFullYear();
@@ -52,7 +51,6 @@ function showError(fieldId, message) {
     field.parentElement.appendChild(errorElement);
   }
   errorElement.textContent = message;
-  field.classList.add("input-error");
 }
 function clearErrors() {
   document.querySelectorAll(".error-message").forEach((error) => {
@@ -101,6 +99,33 @@ setupValidation("country", validateCountry);
 setupValidation("state", validateState);
 setupValidation("city", validateCity);
 setupValidation("address", validateAddress);
+const ageField = document.getElementById("age");
+ageField.addEventListener("change", () => {
+  const dobValue = document.getElementById("dob").value;
+  const age = ageField.checked;
+  const error = validateAge(dobValue, age);
+  if (error) {
+    showError("age", error);
+  } else {
+    clearFieldError("age");
+  }
+});
+document.querySelectorAll('input[name="gender"]').forEach((radio) => {
+  radio.addEventListener("change", () => {
+    const genderCheck = document.querySelector(
+      'input[name="gender"]:checked'
+    );
+    const gender = genderCheck ? genderCheck.value : "";
+    const error = validateGender(gender);
+    if (error) {
+      showError("gender", error);
+    } else {
+      clearFieldError("gender");
+    }
+  });
+});
+
+
 
 
 const handleFormSubmit = (e) => {
@@ -143,7 +168,7 @@ const handleFormSubmit = (e) => {
     adhaar,
     phone: "+91 " + phone,
     age,
-    dob,
+    dob:dobValue,
     gender,
     country,
     state,
@@ -171,6 +196,7 @@ const handleFormSubmit = (e) => {
 form.addEventListener("submit", handleFormSubmit);
 form.addEventListener("reset", () => {
   editId = null;
+  clearErrors();
   document.getElementById("city").innerHTML =
     '<option value="">Select City</option>';
 });

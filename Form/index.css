@@ -159,9 +159,6 @@ td button[data-action="delete"]:hover {
   color: #d32f2f;
   font-size: 13px;
 }
-.input-error {
-  border-color: #d32f2f;
-}
 
 @media (max-width: 768px) {
   body {
