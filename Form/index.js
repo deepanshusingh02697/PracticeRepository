@@ -51,6 +51,15 @@ function showError(fieldId, message) {
     field.parentElement.appendChild(errorElement);
   }
   errorElement.textContent = message;
+  if (fieldId === "country" || fieldId === "state" || fieldId === "city") {
+    field.closest(".select-wrap").classList.add("input-error");
+  } else if (fieldId === "age") {
+    field.closest(".form-section").classList.add("input-error");
+  } else if (fieldId === "gender") {
+    document.querySelector(".gender-options").classList.add("input-error");
+  } else {
+    field.classList.add("input-error");
+  }
 }
 function clearErrors() {
   document.querySelectorAll(".error-message").forEach((error) => {
@@ -66,7 +75,15 @@ function clearFieldError(fieldId) {
   if (errorElement) {
     errorElement.textContent = "";
   }
-  field.classList.remove("input-error");
+  if (fieldId === "country" || fieldId === "state" || fieldId === "city") {
+    field.closest(".select-wrap").classList.remove("input-error");
+  } else if (fieldId === "age") {
+    field.closest(".form-section").classList.remove("input-error");
+  } else if (fieldId === "gender") {
+    document.querySelector(".gender-options").classList.remove("input-error");
+  } else {
+    field.classList.remove("input-error");
+  }
 }
 function validateField(fieldId, validationFunction, value) {
   const error = validationFunction(value);
@@ -77,6 +94,14 @@ function validateField(fieldId, validationFunction, value) {
   clearFieldError(fieldId);
   return false;
 }
+const adhaarField = document.getElementById("adhaar");
+const phoneField = document.getElementById("phone");
+adhaarField.addEventListener("input", () => {
+  adhaarField.value = adhaarField.value.replace(/\D/g, "");
+});
+phoneField.addEventListener("input", () => {
+  phoneField.value = phoneField.value.replace(/\D/g, "");
+});
 function setupValidation(fieldId, validationFunction) {
   const field = document.getElementById(fieldId);
   field.addEventListener("blur", () => {
@@ -139,26 +164,44 @@ const handleFormSubmit = (e) => {
   const address = document.getElementById("address").value;
   const genderCheck = document.querySelector('input[name="gender"]:checked');
   const gender = genderCheck ? genderCheck.value : "";
-
-  if (validateField("name", validateName, name)) return;
-  if (validateField("adhaar", validateAadhaar, adhaar)) return;
-  if (validateField("phone", validatePhone, phone)) return;
-  if (validateField("dob", validateDob, dobValue)) return;
-  let error = validateAge(dobValue, age);
-  if (error) {
-    showError("age", error);
+  let hasError = false;
+  if (validateField("name", validateName, name)) {
+    hasError = true;
+  }
+  if (validateField("adhaar", validateAadhaar, adhaar)) {
+    hasError = true;
+  }
+  if (validateField("phone", validatePhone, phone)) {
+    hasError = true;
+  }
+  if (validateField("dob", validateDob, dobValue)) {
+    hasError = true;
+  }
+  const ageError = validateAge(dobValue, age);
+  if (ageError) {
+    showError("age", ageError);
+    hasError = true;
+  }
+  const genderError = validateGender(gender);
+  if (genderError) {
+    showError("gender", genderError);
+    hasError = true;
+  }
+  if (validateField("country", validateCountry, country)) {
+    hasError = true;
+  }
+  if (validateField("state", validateState, state)) {
+    hasError = true;
+  }
+  if (validateField("city", validateCity, city)) {
+    hasError = true;
+  }
+  if (validateField("address", validateAddress, address)) {
+    hasError = true;
+  }
+  if (hasError) {
     return;
   }
-  error = validateGender(gender);
-  if (error) {
-    showError("gender", error);
-    return;
-  }
-  if (validateField("country", validateCountry, country)) return;
-  if (validateField("state", validateState, state)) return;
-  if (validateField("city", validateCity, city)) return;
-  if (validateField("address", validateAddress, address)) return;
-
   const getData = {
     name,
     adhaar,
@@ -186,6 +229,7 @@ const handleFormSubmit = (e) => {
   }
   localStorage.setItem("usersData", JSON.stringify(formData));
   form.reset();
+  document.getElementById("city").innerHTML = '<option value="">City</option>';
   render(formData);
 };
 

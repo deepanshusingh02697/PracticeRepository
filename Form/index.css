@@ -90,6 +90,10 @@ textarea {
 .select-wrap:focus-within {
   border-color: #4a90e2;
 }
+.select-wrap.input-error:focus-within {
+  border-color: #d32f2f;
+}
+
 .formflex{
   display: flex;
   flex-direction: column;
@@ -151,6 +155,9 @@ td button[data-action="edit"]:hover {
 }
 td button[data-action="delete"]:hover {
   background-color: #d32f2f;
+}
+.input-error {
+  border-color: #d32f2f !important;
 }
 .error-message {
   display: block;
