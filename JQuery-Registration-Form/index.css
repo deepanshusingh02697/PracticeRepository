@@ -1,0 +1,272 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  padding: 30px;
+  color: #333;
+}
+
+.container {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+h3 {
+  margin: 30px 0 15px;
+}
+
+form {
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="date"],
+textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 0 0 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: inherit;
+  background: #fff;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+.select-wrap {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 5px;
+  padding: 0 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.select-wrap select {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 14px;
+  color: #333;
+}
+
+.select-wrap:focus-within {
+  border-color: #4a90e2;
+}
+
+.form-section {
+  width: 100%;
+  min-height: 42px;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.age-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.age-input label {
+  margin: 0;
+}
+
+#age {
+  width: auto;
+  margin: 0;
+}
+
+.gender-options {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.gender-options label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+}
+
+.gender-options input[type="radio"] {
+  width: auto;
+  margin: 0;
+}
+
+.section-label {
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.error-message {
+  display: block;
+  width: 100%;
+  min-height: 18px;
+  margin: 0 0 10px;
+  color: #d32f2f;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+input,
+textarea,
+select {
+  color: #333 !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  color: #333 !important;
+}
+
+input.error,
+textarea.error,
+select.error {
+  color: #333 !important;
+}
+#dob {
+  color: #333 !important;
+}
+
+#dob.error {
+  color: #333 !important;
+}
+
+.select-wrap.error,
+.form-section.error {
+  border-color: #d32f2f !important;
+}
+
+button {
+  padding: 9px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+button[type="submit"] {
+  background: #4caf50;
+  color: #fff;
+}
+
+button[type="submit"]:hover {
+  background: #45a049;
+}
+
+button[type="reset"] {
+  margin-left: 5px;
+  background: #777;
+  color: #fff;
+}
+
+button[type="reset"]:hover {
+  background: #555;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+th {
+  background: #333;
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+td button {
+  margin: 2px;
+}
+
+.editBtn {
+  background: #2196f3;
+  color: #fff;
+}
+
+.editBtn:hover {
+  background: #1976d2;
+}
+
+.deleteBtn {
+  background: #f44336;
+  color: #fff;
+}
+
+.deleteBtn:hover {
+  background: #d32f2f;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+
+  form {
+    padding: 15px;
+  }
+
+  .gender-options {
+    flex-wrap: wrap;
+    gap: 10px 20px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
