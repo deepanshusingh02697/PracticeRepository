@@ -1,0 +1,49 @@
+.filterCon {
+  display: flex;
+  gap: 20px;
+  padding: 12px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  top: 70px;
+  background-color: #fff;
+  width: 100%;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.10);
+}
+.filterSec {
+  display: flex;
+  gap: 10px;
+}
+.filterBtn {
+  border: 1px solid #d3d2d2;
+  min-width: 50px;
+  border-radius: 20px;
+  padding: 9px;
+  font-size: 15px;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  color: #232d37;
+  cursor: pointer;
+}
+.allfilter {
+  background-color: #0078fa;
+  color: aliceblue;
+}
+.bar,
+.date {
+  padding: 9px 0px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #232d37;
+  cursor: pointer;
+}
+.bar {
+  font-size: 30px;
+  padding: 0;
+  color: #d3d2d2;
+}

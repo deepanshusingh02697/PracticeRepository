@@ -1,0 +1,215 @@
+.header {
+  width: 100%;
+  height: 70px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  background-color: #f5fafe;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+.headerCon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 22px;
+}
+.logo {
+  width: 58px;
+  font-weight: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10px;
+  color: #002f34;
+  cursor: pointer;
+}
+
+.logo span {
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 25px;
+  letter-spacing:0.20px;
+  color: #0875e1;
+}
+
+.logo small {
+  font-size: 6px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #0875e1;
+  margin-top: 1px;
+}
+.location {
+  width: 294px;
+  height: 44px;
+  border: 1.5px solid #002f34;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px 0 20px;
+  cursor: pointer;
+}
+
+.locIcon {
+  width: 22px;
+  height: 22px;
+  color: #0066d6;
+  stroke-width: 2.5;
+}
+.locText {
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #111;
+}
+
+.chevron {
+  margin-left: auto;
+  width: 22px;
+  height: 22px;
+  color: #777;
+  stroke-width: 1.8;
+}
+.searchCon {
+  height: 48px;
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  overflow: hidden;
+}
+.searchInput {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0 20px;
+  font-size: 16px;
+  color: #222;
+}
+.searchInput::placeholder {
+  color: #777;
+}
+.searchBtn {
+  width: 42px;
+  height: 35px;
+  border: none;
+  border-radius: 45%;
+  background-color: #0078fa;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.searchBtn svg {
+  width: 23px;
+  height: 25px;
+}
+.actionBtn {
+  width:50px;
+  height: 64px;
+  border: none;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  cursor: pointer;
+  color: #002f34;
+}
+.actionIcon {
+  width: 22px;
+  height: 22px;
+  stroke-width: 1.8;
+}
+.actionBtn span {
+  font-size: 12px;
+  font-weight: 500;
+}
+.sellBtn {
+  height: 48px;
+  min-width: 100px;
+  margin-left: 4px;
+  border-radius: 30px;
+  border: 5px solid transparent;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(90deg, #ffcf00 20%, #41b3ad 40%, #0066d6 100%) border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #002f34;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+.sellPlus {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+.sellText {
+  color: #004897;
+}
+
+@media (max-width: 900px) {
+  .location {
+    width: 200px;
+  }
+  .actionBtn {
+    width: 55px;
+  }
+  .sellBtn {
+    min-width: 90px;
+  }
+}
+
+@media (max-width: 700px) {
+  .header {
+    height: auto;
+  }
+  .headerContainer {
+    padding: 10px 15px;
+
+    flex-wrap: wrap;
+  }
+  .location {
+    width: 200px;
+  }
+  .searchContainer {
+    order: 3;
+
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .logo {
+    width: 45px;
+  }
+  .location {
+    flex: 1;
+    width: auto;
+  }
+  .actionBtn {
+    display: none;
+  }
+  .sellBtn {
+    min-width: 75px;
+  }
+}
