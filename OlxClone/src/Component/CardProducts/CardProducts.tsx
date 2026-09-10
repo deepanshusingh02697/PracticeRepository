@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import styles from "./cardproducts.module.css";
-import { IoMdHeartEmpty } from "react-icons/io";
 import { MdOutlineCurrencyRupee } from "react-icons/md";
 import Loader from "../Loader";
 import { RotatingLines } from "react-loader-spinner";
+import { FaRegHeart } from "react-icons/fa";
 
 interface ProductType {
   id: number;
@@ -27,22 +27,22 @@ export default function CardProducts() {
   const [skip, setSkip] = useState(0);
 
   const LIMIT = 20;
-  const fetchProducts = async (curSkip: number,retries=3) => {
+  const fetchProducts = async (curSkip: number, retries = 3) => {
     try {
-        const res = await fetch(`/api/products?limit=${LIMIT}&skip=${curSkip}`);
-    if (!res.ok) {
-      throw new Error("Failed to fetch products");
-    }
-    const data: ProductResType = await res.json();
-    return data;
+      const res = await fetch(`/api/products?limit=${LIMIT}&skip=${curSkip}`);
+      if (!res.ok) {
+        throw new Error("Failed to fetch products");
+      }
+      const data: ProductResType = await res.json();
+      return data;
     } catch (error) {
-        if(retries>0){
-            await new Promise((resolve)=>{
-                setTimeout(resolve, 1000) 
-            })
-            return fetchProducts(curSkip,retries-1)
-        }
-        throw error
+      if (retries > 0) {
+        await new Promise((resolve) => {
+          setTimeout(resolve, 1000);
+        });
+        return fetchProducts(curSkip, retries - 1);
+      }
+      throw error;
     }
   };
   useEffect(() => {
@@ -52,7 +52,7 @@ export default function CardProducts() {
         const data = await fetchProducts(0);
         setProducts(data.products ?? []);
         setTotal(data.total);
-        setSkip((prev)=>prev + data.products.length);
+        setSkip((prev) => prev + data.products.length);
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
@@ -91,7 +91,7 @@ export default function CardProducts() {
                 className={styles.favorite}
                 aria-label={`Add ${product.title} to favorites`}
               >
-                <IoMdHeartEmpty />
+                <FaRegHeart />
               </button>
             </div>
 
@@ -100,8 +100,10 @@ export default function CardProducts() {
                 <MdOutlineCurrencyRupee />
                 {Math.round(product.price * 80).toLocaleString("en-IN")}
               </div>
-              <div className={styles.title}>{product.title}</div>
-              <div className={styles.description}>{product.description}</div>
+              <div>
+                <div className={styles.title}>{product.title}</div>
+                <div className={styles.description}>{product.description}</div>
+              </div>
               <div className={styles.bottom}>
                 <span>{product.category?.toUpperCase()}</span>
                 <span>TODAY</span>
@@ -112,30 +114,32 @@ export default function CardProducts() {
       </div>
 
       {hasMore && (
-        <button
-          type="button"
-          className={styles.loadMore}
-          onClick={handleLoadMore}
-          disabled={loadMore}
-        >
-          {loadMore ? (
-            <>
-              <div className={styles.loadData}>
-                <RotatingLines
-                strokeColor="currentColor"
-                strokeWidth="5"
-                animationDuration="0.75"
-                width="22"
-                height="22"
-                visible={true}
-              />
-              <span>Loading...</span>
-              </div>
-            </>
-          ) : (
-            "Load more"
-          )}
-        </button>
+        <div className={styles.loadMore}>
+          <button
+            type="button"
+            className={styles.loadMoreBtn}
+            onClick={handleLoadMore}
+            disabled={loadMore}
+          >
+            {loadMore ? (
+              <>
+                <div className={styles.loadData}>
+                  <RotatingLines
+                    strokeColor="currentColor"
+                    strokeWidth="5"
+                    animationDuration="0.75"
+                    width="22"
+                    height="22"
+                    visible={true}
+                  />
+                  <span>Loading...</span>
+                </div>
+              </>
+            ) : (
+              "Load more"
+            )}
+          </button>
+        </div>
       )}
     </>
   );

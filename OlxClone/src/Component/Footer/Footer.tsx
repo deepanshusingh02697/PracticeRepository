@@ -1,12 +1,4 @@
 import styles from "./footer.module.css";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaYoutube,
-  FaWhatsapp,
-  FaLinkedinIn,
-} from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -33,8 +25,8 @@ export default function Footer() {
           <div className={styles.downloadSection}>
             <h3>GET YOUR APP TODAY</h3>
             <div className={styles.storeButtons}>
-              <img src="/playstore_2x.webp" alt="Download on App Store" />
               <img src="/appstore_2x.webp" alt="Get it on Google Play" />
+              <img src="/playstore_2x.webp" alt="Download on App Store" />
             </div>
           </div>
         </div>
@@ -80,16 +72,16 @@ export default function Footer() {
           <div className={styles.followSection}>
             <h3>FOLLOW US</h3>
             <div className={styles.socialIcons}>
-              <FaFacebookF />
-              <FaInstagram />
-              <FaYoutube />
-              <FaXTwitter />
-              <FaWhatsapp />
-              <FaLinkedinIn />
+              <img src="/image.svg"/>
+              <img src="/image (1).svg"/>
+              <img src="/image (2).svg"/>
+              <img src="/image (3).svg"/>
+              <img src="/image (5).svg"/>
+              <img src="/image (6).svg"/>
             </div>
             <div className={styles.bottomStoreButtons}>
-              <img src="/playstore_2x.webp" alt="Get it on Google Play" />
-              <img src="/appstore_2x.webp" alt="Download on App Store" />
+              <img src="/playstore_3x.webp" alt="Get it on Google Play" />
+              <img src="/appstore_3x.webp" alt="Download on App Store" />
             </div>
           </div>
         </div>

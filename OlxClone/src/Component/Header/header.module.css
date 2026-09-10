@@ -17,24 +17,26 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 0 22px;
+  padding: 0 22px 0 10px;
 }
 .logo {
   width: 58px;
-  font-weight: 900;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-right: 10px;
-  color: #002f34;
+
   cursor: pointer;
+}
+.logo img {
+  color: #002f34;
 }
 
 .logo span {
   font-size: 30px;
   font-weight: 900;
   line-height: 25px;
-  letter-spacing:0.20px;
+  letter-spacing: 0.2px;
   color: #0875e1;
 }
 
@@ -46,20 +48,23 @@
   margin-top: 1px;
 }
 .location {
-  width: 294px;
-  height: 44px;
-  border: 1.5px solid #002f34;
+  width: 250px;
+  height: 48px;
+  outline: none;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
   border-radius: 30px;
   display: flex;
   align-items: center;
   padding: 0 14px 0 20px;
   cursor: pointer;
+  margin-bottom: 7px;
 }
 
 .locIcon {
-  width: 22px;
-  height: 22px;
-  color: #0066d6;
+  width: 18px;
+  height: 18px;
+  color: #3a77ff;
   stroke-width: 2.5;
 }
 .locText {
@@ -75,6 +80,7 @@
   height: 22px;
   color: #777;
   stroke-width: 1.8;
+  color: #ddd;
 }
 .searchCon {
   height: 48px;
@@ -82,10 +88,47 @@
   min-width: 200px;
   display: flex;
   align-items: center;
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   border: 1px solid #ddd;
   border-radius: 30px;
   overflow: hidden;
+  margin-bottom: 7px;
+  position: relative;
+  letter-spacing: 1.5;
+}
+.searchPlaceholder {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  font-weight: 200;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: #8d9094;
+  font-size: 16px;
+  color: #8d9094;
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+.searchChanging {
+  display: inline-block;
+  margin-left: 2px;
+
+  animation: searchWordUp 1.6s ease-in-out;
+}
+
+@keyframes searchWordUp {
+  from {
+    transform: translateY(0px);
+    opacity: 0.74;
+  }
+  to {
+    transform: translateY(-70px);
+    opacity: 1;
+  }
 }
 .searchInput {
   flex: 1;
@@ -96,9 +139,11 @@
   padding: 0 20px;
   font-size: 16px;
   color: #222;
+  position: relative;
+  z-index: 2;
 }
 .searchInput::placeholder {
-  color: #777;
+  color: #8d9094;
 }
 .searchBtn {
   width: 42px;
@@ -117,8 +162,13 @@
   width: 23px;
   height: 25px;
 }
+.actionbtns {
+  display: flex;
+  gap: 0px;
+  margin: 0px 16px;
+}
 .actionBtn {
-  width:50px;
+  width: 50px;
   height: 64px;
   border: none;
   background: transparent;
@@ -126,18 +176,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3px;
+  gap: 0px;
   cursor: pointer;
   color: #002f34;
 }
 .actionIcon {
   width: 22px;
-  height: 22px;
-  stroke-width: 1.8;
+  height: 28px;
+  stroke-width: 2;
+  color: #003670;
 }
 .actionBtn span {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
+  color: #003670;
 }
 .sellBtn {
   height: 48px;
@@ -165,7 +217,8 @@
 }
 .sellText {
   color: #004897;
-}
+} 
+
 
 @media (max-width: 900px) {
   .location {

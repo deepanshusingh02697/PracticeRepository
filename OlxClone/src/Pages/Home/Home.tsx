@@ -1,71 +1,68 @@
 import CardProducts from "../../Component/CardProducts/CardProducts";
 import Filters from "../../Component/Filter/Filters";
 import styles from "./home.module.css";
+
+import cars from '../../assets/image.png'
+import bike from '../../assets/Bike-image.png'
+import property from '../../assets/property-img.png'
+import freeze from '../../assets/asset-img.png'
+import phone from '../../assets/phone-img.png'
+import comVehicle from '../../assets/comVehicle.png'
+import jobBag from '../../assets/job-img.png'
+import furniture from '../../assets/funiture-img.png'
+import fashion from '../../assets/fashion-img.png'
+import pets from '../../assets/pets-img.png'
+import hobbies from '../../assets/hobbies.png'
+import services from "../../assets/service-img.png"
+
 const categories = [
   {
     name: "Cars",
-    image:
-      "https://cdn.dummyjson.com/product-images/vehicle/charger-sxt-rwd/thumbnail.webp",
+    image:cars,
   },
   {
     name: "Bikes",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kawasaki_Ninja_H2R_right.JPG",
+    image:bike,
   },
   {
     name: "Properties",
-    image:
-      "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/thumbnail.webp",
+    image:property,
   },
   {
     name: "Electronics & Appliances",
-    image:
-      "https://cdn.dummyjson.com/product-images/kitchen-accessories/black-whisk/thumbnail.webp",
+    image:freeze,
   },
   {
     name: "Mobiles",
-    image:
-      "https://cdn.dummyjson.com/product-images/smartphones/iphone-6/thumbnail.webp",
+    image:phone,
   },
   {
     name: "Commercial Vehicles & Spares",
-    image:
-      "https://cdn.dummyjson.com/product-images/vehicle/charger-sxt-rwd/thumbnail.webp",
+    image:comVehicle,
   },
   {
     name: "Jobs",
-    image:
-      "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/thumbnail.webp",
+    image:jobBag,
   },
   {
     name: "Furniture",
-    image:
-      "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/thumbnail.webp",
+    image:furniture,
   },
   {
     name: "Fashion",
-    image:
-      "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/thumbnail.webp",
+    image:fashion,
   },
   {
-    name: "Beauty",
-    image:
-      "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp",
+    name: "Pets",
+    image:pets,
   },
   {
-    name: "Groceries",
-    image:
-      "https://cdn.dummyjson.com/product-images/groceries/apple/thumbnail.webp",
+    name: "Books,sports & Hobbies",
+    image:hobbies,
   },
   {
-    name: "Home Decor",
-    image:
-      "https://cdn.dummyjson.com/product-images/home-decoration/plant-pot/thumbnail.webp",
-  },
-  {
-    name: "Laptops",
-    image:
-      "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/thumbnail.webp",
+    name: "Services",
+    image:services,
   },
 ];
 
@@ -90,7 +87,7 @@ export default function Home() {
           ))}
         </div>
         <div className={styles.cardSection}>
-          <h3>Fresh Recommendations</h3>
+          <h3>Fresh recommendations</h3>
           <CardProducts />
         </div>
       </div>

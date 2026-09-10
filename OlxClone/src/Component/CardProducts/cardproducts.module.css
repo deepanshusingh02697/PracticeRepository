@@ -32,10 +32,10 @@
 }
 .imageContainer {
   position: relative;
-  height: 170px;
+  height: 150px;
   overflow: hidden;
   background: #f5f5f5;
-  margin: 5px;
+  margin: 8px;
 }
 .imageContainer img {
   width: 100%;
@@ -52,7 +52,7 @@
   height: 34px;
   border: none;
   border-radius: 50%;
-  background: white;
+  background: #ffffff;
   font-size: 20px;
   line-height: 1;
   cursor: pointer;
@@ -64,28 +64,29 @@
 
 .details {
   padding: 8px 10px 10px;
-  line-height: 1;
+  letter-spacing: 0.4px;
 }
 .price {
   font-size: 20px;
   font-weight: 700;
   color: #222;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   display: flex;
   align-items: center;
 }
 .title {
   font-size: 14px;
   color: #555;
+  color: #9fa3a7;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-bottom: 8px;
+  margin-bottom:2px;
 }
 
 .description {
-  font-size: 12px;
-  color: #888;
+  font-size: 14px;
+  color: #9fa3a7;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -95,23 +96,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 10px;
-  color: #999;
+  font-size: 11px;
+  color: #9fa3a7;
 }
 .loadMore {
   display: block;
-  margin: 30px auto 15px;
-  padding: 15px;
-  background: white;
+  margin: 20px auto 20px;
   border: 2px solid #003f88;
   border-radius: 4px;
-  color: #003f88;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
 }
 .loadMore:hover {
-  border: 5px solid #003f88;
+  background-color: #003f88;
+
+}
+.loadMoreBtn{
+  padding:10px 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #003f88;
+  border: none;
+  background: white;
+  margin: 3px;
 }
 .loadData {
   display: flex;

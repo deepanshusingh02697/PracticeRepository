@@ -1,7 +1,7 @@
 .filterCon {
   display: flex;
   gap: 20px;
-  padding: 12px;
+  padding: 12px 0px;
   position: fixed;
   top: 0;
   z-index: 1000;
@@ -20,20 +20,26 @@
   min-width: 50px;
   border-radius: 20px;
   padding: 9px;
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 400;
   display: flex;
   gap: 5px;
   justify-content: center;
   align-items: center;
-  color: #232d37;
+  color: #1b2128;
   cursor: pointer;
+  font-family: "Roboto", sans-serif;
 }
 .allfilter {
   background-color: #0078fa;
-  color: aliceblue;
+  color: #fff;
+  padding:12px 0px;
+  font-weight: 500;
+  width: 160px;
+  font-size: 14px;
+  letter-spacing: 0.7px;
 }
-.bar,
-.date {
+.bar, .date{
   padding: 9px 0px;
   font-size: 16px;
   display: flex;
@@ -46,4 +52,11 @@
   font-size: 30px;
   padding: 0;
   color: #d3d2d2;
+  font-weight: 500;
+  margin-right: 12px;
+}
+.date{
+  color: #686c6f;
+  font-size: 14px;
+  letter-spacing: 0.2px;
 }

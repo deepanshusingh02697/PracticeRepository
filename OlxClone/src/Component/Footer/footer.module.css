@@ -32,22 +32,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
 }
 
 .appDescription h2 {
-  margin: 0 0 24px;
-  color: #002f34;
-  font-size: 32px;
+  margin: 22px 0 14px;
+  color: #020712;
+  font-size: 34px;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.7px;
 }
 
 .appDescription p {
   margin: 0;
-  color: #111;
-  font-size: 18px;
+  color: #040b1c;
+  font-size: 20px;
   line-height: 1.25;
+  letter-spacing: 0.3px;
+  font-weight: 370;
 }
 .downloadSection {
   width: 35%;
@@ -56,9 +58,9 @@
 
 .downloadSection h3 {
   margin: 0 0 20px;
-  color: #002f34;
-  font-size: 18px;
-  font-weight: 700;
+  color: #020712;
+  font-size: 15px;
+  font-weight: 500;
 }
 .storeButtons {
   display: flex;
@@ -66,8 +68,8 @@
   gap: 12px;
 }
 .storeButtons img {
-  width: 140px;
-  height: 48px;
+  width: 125px;
+  height: 45px;
   object-fit: contain;
 }
 
@@ -85,12 +87,20 @@
   grid-template-columns: 1.1fr 1.1fr 1.1fr 1.4fr 1.6fr;
   column-gap: 25px;
 }
+.footerColumn h3{
+  letter-spacing: 0.7px;
+}
 .footerColumn h3,
 .followSection h3 {
   margin: 0 0 18px;
   color: #002f34;
   font-size: 14px;
   font-weight: 700;
+}
+.followSection h3 {
+  color: #646c77;
+  letter-spacing: 0.7px;
+  margin-bottom: 6px;
 }
 
 .footerColumn ul {
@@ -100,11 +110,12 @@
 }
 
 .footerColumn li {
-  margin-bottom: 9px;
+  margin-bottom: 8px;
   color: #8a8a8a;
   font-size: 12px;
-  line-height: 1.2;
+  line-height: 1;
   cursor: pointer;
+  letter-spacing: 0.5px;
 }
 .footerColumn li:hover {
   color: #002f34;
@@ -116,8 +127,9 @@
 .socialIcons {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
+  gap: 8px;
+  margin-bottom: 6px;
+  margin-left: 2px;
 }
 
 .socialIcons svg {
@@ -125,42 +137,6 @@
   height: 30px;
   box-sizing: border-box;
   cursor: pointer;
-}
-
-.socialIcons svg:nth-child(1) {
-  color: white;
-  background-color: #1877f2;
-  width: 26px;
-  height: 26px;
-  padding: 3px;
-}
-
-.socialIcons svg:nth-child(2) {
-  color: #e4405f;
-}
-
-.socialIcons svg:nth-child(3) {
-  color: #ff0000;
-}
-
-.socialIcons svg:nth-child(4) {
-  color: #000;
-}
-
-.socialIcons svg:nth-child(5) {
-  color: white;
-  background-color: #25d366;
-  width: 26px;
-  height: 26px;
-  padding: 3px;
-}
-
-.socialIcons svg:nth-child(6) {
-  color: white;
-  background-color: #1877f2;
-  width: 26px;
-  height: 26px;
-  padding: 3px;
 }
 
 .bottomStoreButtons {
@@ -191,21 +167,22 @@
 }
 
 .topbfooter {
-  width: 80%;
-  margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 68px;
+  gap:45px;
+  display: flex;
+  justify-content: center;
 }
 
 .groupLogo {
-  width: 292px;
-  height: 135px;
+  width: 220px;
+  height: 125px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   border-right: 1px solid #ffffff;
+  padding-right: 48px;
 }
 
 .groupLogo img {
@@ -213,16 +190,16 @@
   height: auto;
   display: block;
 }
-
+  
 .brandLogos {
   display: flex;
   align-items: center;
-  gap: 68px;
+  gap:38px;
 }
 
 .brandLogo {
-  width: 150px;
-  height: 86px;
+  width: 175px;
+  height: 96px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -231,37 +208,38 @@
 
 .brandLogo img {
   width: 75%;
-  max-width: 125px;
-  max-height: 55px;
+  max-width: 144px;
+  max-height: 60px;
   height: auto;
   object-fit: contain;
   display: block;
 }
 .brandLogo:first-child img {
-  width: 95px;
+  width: 85px;
 }
 .brandLogo:nth-child(2) img {
-  width: 110px;
+  width: 100px;
 }
 .brandLogo:nth-child(3) img {
-  width: 110px;
+  width: 100px;
 }
 .brandLogo:nth-child(4) img {
-  width: 115px;
+  width: 105px;
 }
 .brandLogo:nth-child(5) img {
-  width: 120px;
+  width: 110px;
 }
 .bottombfooter {
   width: 100%;
   margin-top: 25px;
 }
 .bottombfSec {
-  width: 76%;
+  width: 72%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 12px;
   color: #ffffff;
+  letter-spacing: 0.2px;
 }
