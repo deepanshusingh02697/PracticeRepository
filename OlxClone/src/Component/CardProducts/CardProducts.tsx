@@ -101,8 +101,8 @@ export default function CardProducts() {
                 {Math.round(product.price * 80).toLocaleString("en-IN")}
               </div>
               <div>
-                <div className={styles.title}>{product.title}</div>
-                <div className={styles.description}>{product.description}</div>
+                <div className={`${styles.title} ${styles.description}`}>{product.title}</div>
+                {/* <div className={styles.description}>{product.description}</div> */}
               </div>
               <div className={styles.bottom}>
                 <span>{product.category?.toUpperCase()}</span>
